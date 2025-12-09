@@ -1,0 +1,156 @@
+/*
+Ceci est une "feuille de style externe". C'est la méthode la plus courante
+et la plus recommandée pour organiser son CSS, car elle sépare complètement
+le style de la structure HTML.
+*/
+
+/* --- Thème et Variables CSS --- */
+/*
+Les variables CSS (ou propriétés personnalisées) permettent de stocker des valeurs
+réutilisables. C'est très pratique pour gérer les couleurs d'un thème.
+On les définit dans :root pour qu'elles soient disponibles globalement.
+*/
+:root {
+    --couleur-fond: #f0f0f0;
+    --couleur-texte: #333;
+    --couleur-primaire: #005a9c;
+    --couleur-fond-note: #e3f2fd;
+    --couleur-fond-conteneur: #ddd;
+}
+
+/* On peut créer un thème sombre en redéfinissant ces variables. */
+[data-theme="dark"] {
+    --couleur-fond: #222;
+    --couleur-texte: #eee;
+    --couleur-primaire: #58a6ff;
+    --couleur-fond-note: #0d1117;
+    --couleur-fond-conteneur: #333;
+}
+
+/* --- Sélecteurs CSS --- */
+
+/* Le sélecteur d'élément cible toutes les balises d'un certain type. */
+/* Ici, nous stylisons le corps de la page. */
+body {
+    font-family: Arial, sans-serif; /* Définit la police pour toute la page */
+    background-color: var(--couleur-fond); /* Couleur de fond via variable */
+    color: var(--couleur-texte); /* Couleur de texte via variable */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s; /* Transition douce pour le thème */
+}
+
+/* On peut cibler plusieurs éléments en les séparant par une virgule. */
+h1, h2 {
+    color: var(--couleur-primaire); /* Une couleur bleue pour les titres */
+}
+
+/* Le sélecteur de classe cible les éléments avec un attribut class. */
+/* Les classes sont réutilisables. On les reconnaît par le point (.). */
+.note {
+    background-color: var(--couleur-fond-note); /* Fond bleu clair */
+    border-left: 5px solid var(--couleur-primaire); /* Bordure gauche bleue foncée */
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.note2 {
+    background-color: var(--couleur-fond-note); /* Fond bleu clair */
+    border-left: 5px solid var(--couleur-primaire2); /* Bordure gauche bleue foncée */
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Le sélecteur d'ID cible UN SEUL élément avec un attribut id. */
+/* Les ID doivent être uniques. On les reconnaît par le dièse (#). */
+#introduction {
+    border-bottom: 2px solid #ccc; /* Ligne de séparation grise */
+    padding-bottom: 10px;
+}
+
+/* --- Mise en forme du texte --- */
+.texte-gras { font-weight: bold; }
+.texte-italique { font-style: italic; }
+.texte-souligne { text-decoration: underline; }
+.texte-majuscules { text-transform: uppercase; }
+
+/* --- Le modèle de boîte (Box Model) --- */
+.box-model-demo {
+    background-color: #90ee90; /* Fond vert clair */
+    border: 5px solid #2e8b57; /* Bordure verte foncée */
+    padding: 20px; /* Espace intérieur (entre le contenu et la bordure) */
+    margin: 30px; /* Espace extérieur (autour de la bordure) */
+    width: 200px; /* Largeur du contenu */
+    text-align: center;
+}
+
+/* --- Flexbox pour la mise en page --- */
+.flex-container {
+    display: flex; /* Active le mode d'affichage Flexbox */
+    justify-content: space-around; /* Répartit l'espace autour des éléments */
+    background-color: var(--couleur-fond-conteneur);
+    padding: 10px;
+}
+
+.flex-item {
+    background-color: var(--couleur-primaire);
+    color: white;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+}
+
+/* --- Pseudo-classes --- */
+/* Une pseudo-classe est utilisée pour définir un état spécial d'un élément. */
+.bouton-demo {
+    background-color: #ff8c00; /* Orange */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none; /* Enlève le soulignement du lien */
+    border-radius: 5px; /* Coins arrondis */
+    display: inline-block; /* Permet de définir padding et margin */
+    transition: background-color 0.3s; /* Animation douce au survol */
+}
+
+/* :hover s'active lorsque l'utilisateur passe sa souris sur l'élément. */
+.bouton-demo:hover {
+    background-color: #e67e00; /* Orange plus foncé */
+}
+
+/* --- Menu de navigation simple --- */
+.menu-simple {
+    background-color: var(--couleur-primaire);
+    padding: 0 10px;
+}
+.menu-simple ul {
+    display: flex; /* Aligne les éléments du menu horizontalement */
+    list-style-type: none; /* Supprime les puces de la liste */
+    margin: 0;
+    padding: 0;
+}
+.menu-simple a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.menu-simple a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Image de fond --- */
+.fond-image {
+    /* On utilise ici une image locale. Assurez-vous d'avoir un fichier 'background.jpg' dans le même dossier que ce fichier CSS. */
+    background-image: url('background.jpg');
+    background-size: cover; /* L'image couvre tout l'élément */
+    background-position: center; /* L'image est centrée */
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre sur le texte pour la lisibilité */
+}

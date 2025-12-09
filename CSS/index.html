@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-cours CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav style="margin:10px 20px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="../index.html"
+           style="display:inline-block;padding:8px 14px;border-radius:999px;
+                  background:#333;color:#fff;text-decoration:none;font-weight:bold;">
+            ⬅ Retour à l'accueil
+        </a>
+        <a href="cours-css.zip" download
+           style="display:inline-block;padding:8px 14px;border-radius:999px;
+                  background:#0b7285;color:#fff;text-decoration:none;font-weight:bold;">
+            ⬇ Télécharger cette page (ZIP)
+        </a>
+    </nav>
+
+    <div id="introduction">
+        <h1>Mini-cours sur le CSS</h1>
+        <p>Cette page est un exemple de ce que l'on peut faire avec le CSS. Le style est géré dans le fichier <code>style.css</code>. Inspectez les deux fichiers pour voir les commentaires.</p>
+    </div>
+
+    <h2>Thème</h2>
+    <p>Grâce aux variables CSS et à un peu de JavaScript, on peut facilement changer le thème de la page.</p>
+    <button id="theme-toggle">Changer de thème (Clair/Sombre)</button>
+
+    <h2>Menu de navigation simple</h2>
+    <p>Un menu de navigation est une liste de liens stylisée.</p>
+    <nav class="menu-simple">
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="note">
+        <p>Ceci est un élément avec la classe <code>.note</code>. Il a un fond bleu clair et une bordure à gauche. Les classes permettent de réutiliser des styles sur plusieurs éléments.</p>
+    </div>
+
+    <h2>Mise en forme du texte</h2>
+    <p>Le CSS permet de contrôler l'apparence du texte :</p>
+    <ul>
+        <li><span class="texte-gras">Texte en gras (font-weight)</span></li>
+        <li><span class="texte-italique">Texte en italique (font-style)</span></li>
+        <li><span class="texte-souligne">Texte souligné (text-decoration)</span></li>
+        <li><span class="texte-majuscules">Texte en majuscules (text-transform)</span></li>
+    </ul>
+
+    <h2>Le modèle de boîte (Box Model)</h2>
+    <p>En CSS, chaque élément est une boîte rectangulaire. Cette boîte est composée de : la marge (margin), la bordure (border), le remplissage (padding) et le contenu (content).</p>
+    <div class="box-model-demo">
+        Contenu
+    </div>
+
+    <h2>Mise en page avec Flexbox</h2>
+    <p>Flexbox est un outil puissant pour aligner et distribuer l'espace entre les éléments d'un conteneur.</p>
+    <div class="flex-container">
+        <div class="flex-item">Élément 1</div>
+        <div class="flex-item">Élément 2</div>
+        <div class="flex-item">Élément 3</div>
+    </div>
+
+    <h2>Pseudo-classes</h2>
+    <p>Les pseudo-classes permettent de styliser un élément en fonction de son état (par exemple, survolé par la souris).</p>
+    <a href="#" class="bouton-demo">Passez la souris sur moi !</a>
+    
+    <h2>Image de fond</h2>
+    <p>On peut appliquer une image de fond à n'importe quel élément.</p>
+    <div class="fond-image">
+        <h3>Cet élément a une image de fond</h3>
+    </div>
+
+    <script>
+        // Petit script pour gérer le changement de thème
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            if (body.dataset.theme === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.dataset.theme = 'dark';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -38,12 +38,16 @@
             color: #333;
         }
 
+        /* Code inline dans le texte (surligné clair) */
         code {
-            background: #673636;
+            background: #f0f0f0;
+            color: #c7254e; /* rouge lisible sur fond clair */
             padding: 2px 5px;
             border-radius: 4px;
+            font-family: monospace;
         }
 
+        /* Code dans un bloc <pre> (fond sombre) */
         pre {
             background: #333;
             color: #fff;
@@ -51,6 +55,11 @@
             border-radius: 4px;
             white-space: pre-wrap;
             /* Permet le retour à la ligne pour les longs codes */
+        }
+        pre code {
+            background: transparent; /* pas de double fond */
+            color: inherit;
+            padding: 0;
         }
 
         table,

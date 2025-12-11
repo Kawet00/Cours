@@ -13,10 +13,10 @@
                   background:#333;color:#fff;text-decoration:none;font-weight:bold;">
             ⬅ Retour à l'accueil
         </a>
-        <a href="cours-sql.zip" download
+        <a href="cours-sql.rar" download
            style="display:inline-block;padding:8px 14px;border-radius:999px;
                   background:#0b7285;color:#fff;text-decoration:none;font-weight:bold;">
-            ⬇ Télécharger cette page (ZIP)
+            ⬇ Télécharger cette page (RAR)
         </a>
     </nav>
 
@@ -36,8 +36,6 @@
         
         <!-- 1. Création base + tables -->
         <h2>1. Créer une base de données et des tables</h2>
-        <img src="screens/creation_base.png" alt="Création d'une base dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
-        <img src="screens/creation_table.png" alt="Création d'une table dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <p>
             Pour créer une base de données en local avec WAMP :
         </p>
@@ -47,6 +45,8 @@
             <li>Clique sur <strong>Nouvelle base de données</strong> dans le menu de gauche.</li>
             <li>Donne un nom à ta base (ex : <code>magasin</code>), choisis le <strong>interclassement</strong> (utf8_general_ci conseillé), puis clique sur <strong>Créer</strong>.</li>
         </ol>
+        <img src="screens/creation_base.png" alt="Création d'une base dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
+        <img src="screens/creation_table.png" alt="Création d'une table dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <pre><code>CREATE TABLE utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100) NOT NULL,
@@ -56,7 +56,6 @@
 
         <!-- 2. Remplir les tables avec fichier au format CSV -->
         <h2>2. Remplir les tables avec un fichier CSV</h2>
-        <img src="screens/import_csv.png" alt="Import CSV dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <p>
             Pour importer des données dans une table depuis un fichier CSV avec phpMyAdmin :
         </p>
@@ -65,6 +64,7 @@
             <li>Dans phpMyAdmin, sélectionne la table puis va dans l’onglet <strong>Importer</strong>.</li>
             <li>Choisis ton fichier CSV, configure le séparateur (souvent <code>,</code>), puis lance l’import.</li>
         </ol>
+        <img src="screens/import_csv.png" alt="Import CSV dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
 
         <!-- 3. Les formes normales -->
         <h2>3. Les formes normales</h2>
@@ -81,7 +81,6 @@
 
         <!-- 4. Modèle relationnel en détail -->
         <h2>4. Le modèle relationnel en détail</h2>
-        <img src="screens/modele_relationnel.png" alt="Schéma du modèle relationnel" class="screen" onclick="showModalImg(this.src)">
         <p>
             Le <strong>modèle relationnel</strong> organise les données en <strong>tables</strong> reliées entre elles par des <strong>relations</strong> (clés étrangères). Chaque table représente une entité (ex : <code>utilisateurs</code>, <code>commandes</code>), chaque ligne une instance, chaque colonne un attribut.
         </p>
@@ -90,33 +89,40 @@
             <li><strong>Clé étrangère</strong> : référence à la clé primaire d’une autre table (<code>utilisateur_id</code> dans <code>commandes</code>).</li>
             <li><strong>Relation</strong> : lien logique entre deux tables (ex : un utilisateur peut avoir plusieurs commandes).</li>
         </ul>
+        <img src="screens/modele_relationnel.png" alt="Schéma du modèle relationnel" class="screen" onclick="showModalImg(this.src)">
 
         <!-- 5. Langage d'interrogation de données -->
         <h2>5. Langage d’interrogation de données (LID)</h2>
-        <img src="screens/select_phpmyadmin.png" alt="Requête SELECT dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <p>
             Le <strong>langage d’interrogation de données</strong> (LID) permet de lire et rechercher des données dans les tables. Il s’appuie principalement sur la commande <code>SELECT</code> et ses variantes (<code>WHERE</code>, <code>ORDER BY</code>, <code>GROUP BY</code>, etc.).
         </p>
+        <img src="screens/select_phpmyadmin.png" alt="Requête SELECT dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <pre><code>SELECT nom, email FROM utilisateurs WHERE actif = TRUE;</code></pre>
         <pre><code>SELECT COUNT(*) FROM commandes WHERE montant &gt; 100;</code></pre>
 
         <!-- 6. Auto-incrémentation et saisie manuelle -->
         <h2>6. Auto-incrémentation et saisie manuelle</h2>
-        <img src="screens/auto_increment.jpg" alt="Auto-incrémentation dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <p>
             <code>AUTO_INCREMENT</code> permet d’ajouter automatiquement une valeur unique à chaque nouvelle ligne.<br>
-            Pour saisir manuellement une valeur, il suffit de préciser l’id lors de l’insertion :
+            Pour activer l'auto-incrémentation via l'interface graphique de phpMyAdmin :
         </p>
+        <ol>
+            <li>Dans phpMyAdmin, sélectionnez la base de données, puis la table concernée.</li>
+            <li>Allez dans l'onglet <strong>Structure</strong>.</li>
+            <li>Cliquez sur l'icône <strong>Modifier</strong> (en forme de crayon) à côté de la colonne.</li>
+            <li>Cochez la case <strong>A_I</strong> (Auto Increment).</li>
+            <li>Enregistrez les modifications.</li>
+        </ol>
+        <img src="screens/auto_increment_1.png" alt="Activer l'auto-incrémentation dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
+        <img src="screens/auto_increment_2.png" alt="Activer l'auto-incrémentation dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <pre><code>INSERT INTO utilisateurs (id, nom) VALUES (10, 'Manuel');</code></pre>
         <pre><code>CREATE TABLE utilisateurs (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100) NOT NULL
 );</code></pre>
-        <!-- Tu peux ajouter ici un screen montrant l'auto-incrémentation dans phpMyAdmin -->
 
         <!-- 7. Tri et fonctions monotable -->
         <h2>7. Trier les résultats et fonctions monotable</h2>
-        <img src="screens/tri_agregation.jpg" alt="Tri et fonctions d'agrégation dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <p>
             Pour trier les résultats d’une requête, on utilise <code>ORDER BY</code> :
         </p>
@@ -140,7 +146,6 @@ SELECT MAX(date_commande) FROM commandes;</code></pre>
 
         <!-- 8. Restrictions de données -->
         <h2>8. Restrictions de données (contraintes SQL)</h2>
-        <img src="screens/contraintes.jpg" alt="Contraintes dans phpMyAdmin" class="screen" onclick="showModalImg(this.src)">
         <p>
             Les <strong>contraintes</strong> permettent de garantir la validité et la cohérence des données dans une table :
         </p>
